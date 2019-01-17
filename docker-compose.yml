@@ -2,19 +2,23 @@
 # docker-compose up -d
 #
 # Step2
-# docker-compose run web rails db:create
+# docker-compose run --rm web rails db:create
 #
 # Step3
-# docker-compose run web rails db:migrate
+# docker-compose run --rm web rails db:migrate
 #
 # Step4
-# docker-compose run web rails db:seed
+# docker-compose run --rm web rails db:seed
 #
 # Step5
 # access http://localhost:3000 and input these values into text fields (mail:admin@hogehoge.com password:password) and login
 #
 # If you want to enter into container
+# docker exec -it rubby_on_rails_on_docker_for_mac_schedule_web_1 bash
 # docker exec -it rubby_on_rails_on_docker_for_mac_schedule_db_1 bash
+#
+# Notes 
+# in case docker service 'web' does not run , try next command 'docker-compose run web rm /app/tmp/pids/server.pid' and then 'docker-compose stop & start'
 #
 # docker-compose.ymlフォーマットのバージョン指定
 version: '3'
